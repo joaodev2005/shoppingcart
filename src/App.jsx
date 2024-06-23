@@ -1,13 +1,11 @@
-
+import Header from "./components/Header/Header"
 
 function App() {
-
 
   return (
     <>
       <div>
-        <h1>Shopping Cart</h1>
-        <button>clique</button>
+        <Header />
       </div>
     </>
   )
