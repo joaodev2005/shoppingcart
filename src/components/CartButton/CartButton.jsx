@@ -6,8 +6,12 @@ const CartButton = () => {
   return (
     <button type='button' className='cart_button'>
 
-      <CiShoppingCart />
-      
+      <CiShoppingCart size={30} />
+
+      <span className="cart-status">
+        1
+      </span>
+
     </button>
   )
 }
