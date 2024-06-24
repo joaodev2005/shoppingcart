@@ -13,12 +13,20 @@ const Products = () => {
   useEffect(() => {
     fetchProducts('computador').then((response) =>
       setProducts(response))
-      console.log(products)
   }, )
 
   return (
     <section className="products container">
-      <ProductCard />
+      
+      {
+        products.map((product) => (
+          <ProductCard
+            key={product.id}
+            data={product}
+          />
+        ))
+      }
+
     </section>
   )
 }
