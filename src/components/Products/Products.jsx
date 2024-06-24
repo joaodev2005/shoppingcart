@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react'
 
 import ProductCard from '../ProductCard/ProductCard'
+import Loading from '../Loading/Loading'
 
 import fetchProducts from '../../api/fetchProducts'
 
@@ -17,6 +18,8 @@ const Products = () => {
 
   return (
     <section className="products container">
+
+      <Loading />
       
       {
         products.map((product) => (
