@@ -2,15 +2,26 @@ import { useState } from 'react'
 
 import { IoIosSearch } from "react-icons/io";
 
+import fetchProducts from '../../api/fetchProducts'
+
 import './SearchBar.css'
 
 const SearchBar = () => {
 
   const [searchValue, setSearchValue] = useState('')
 
+  const handleSearch = async (event) => {
+    event.preventDefault()
+    
+    const products = await fetchProducts(searchValue)
+    console.log(products)
+
+    setSearchValue('')
+  }
+
   return (
 
-    <form className='search-bar'>
+    <form className='search-bar' onSubmit={handleSearch}>
       <input
         type="search"
         value={searchValue}

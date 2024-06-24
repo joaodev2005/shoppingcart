@@ -2,6 +2,7 @@
   margin: 280px auto 0;
   font-size: 2rem;
   animation: loading 1s infinite linear;
+  width: 100%;
 }
 
 @keyframes loading {

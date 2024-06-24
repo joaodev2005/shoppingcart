@@ -11,26 +11,32 @@ const Products = () => {
 
   const [products, setProducts] = useState([])
 
+  const [loading, setLoading] = useState(true)
+
   useEffect(() => {
     fetchProducts('computador').then((response) =>
       setProducts(response))
-  }, )
+    setLoading(false)
+  }, [])
 
   return (
-    <section className="products container">
+    <>
+      {loading && <Loading /> || (
 
-      <Loading />
-      
-      {
-        products.map((product) => (
-          <ProductCard
-            key={product.id}
-            data={product}
-          />
-        ))
-      }
+        <section className="products container">
+          {
+            products.map((product) => (
+              <ProductCard
+                key={product.id}
+                data={product}
+              />
+            ))
+          }
+        </section>
 
-    </section>
+      )}
+    </>
+
   )
 }
 
