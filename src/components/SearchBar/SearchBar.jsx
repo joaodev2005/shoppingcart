@@ -1,21 +1,24 @@
-import { useState } from 'react'
+import { useState, useContext } from 'react'
 
 import { IoIosSearch } from "react-icons/io";
 
 import fetchProducts from '../../api/fetchProducts'
 
+import AppContext from '../../context/AppContext';
+
 import './SearchBar.css'
 
 const SearchBar = () => {
 
+  const { setProducts } = useContext(AppContext)
   const [searchValue, setSearchValue] = useState('')
 
   const handleSearch = async (event) => {
     event.preventDefault()
     
     const products = await fetchProducts(searchValue)
-    console.log(products)
 
+    setProducts(products)
     setSearchValue('')
   }
 
