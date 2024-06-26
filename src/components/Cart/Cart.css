@@ -10,6 +10,16 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  transform: translate(110%, 0);
+  -webkit-transform: translate(110%, 0);
+  -moz-transform: translate(110%, 0);
+  -ms-transform: translate(110%, 0);
+  -o-transform: translate(110%, 0);
+  transition: all 400ms ease;
+  -webkit-transition: all 400ms ease;
+  -moz-transition: all 400ms ease;
+  -ms-transition: all 400ms ease;
+  -o-transition: all 400ms ease;
 }
 
 .cart-itens {
@@ -27,3 +37,7 @@
 .cart-itens .cart-item:last-child {
   border-bottom: none;
 } 
+
+.cart_active {
+  transform: translate(0, 0);
+}
