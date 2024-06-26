@@ -1,13 +1,20 @@
 import { FaCartArrowDown } from "react-icons/fa6";
+import { useContext } from "react";
 
 import propTypes from 'prop-types'
 import FormatCurrency from '../../utils/FormatCurrency'
+
+import AppContext from '../../context/AppContext'
 
 import './ProductCard.css'
 
 const ProductCard = ({ data }) => {
 
   const { title, price, thumbnail } = data
+
+  const { cartItems, setCartItems } = useContext(AppContext)
+
+  const handleAddCart = () => setCartItems([...cartItems, data])
 
   return (
     <section className='product-card'>
@@ -23,7 +30,11 @@ const ProductCard = ({ data }) => {
         <h2 className="card_title">{title}r</h2>
       </div>
 
-      <button type='button' className='button_add-cart'>
+      <button
+        type='button'
+        className='button_add-cart'
+        onClick={handleAddCart}
+      >
         <FaCartArrowDown />
       </button>
     </section>
