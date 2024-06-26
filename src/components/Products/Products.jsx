@@ -1,44 +1,76 @@
-import { useState, useEffect, useContext } from 'react'
+// import { useState, useEffect, useContext } from 'react'
 
-import ProductCard from '../ProductCard/ProductCard'
-import Loading from '../Loading/Loading'
-import AppContext from '../../context/AppContext'
-import fetchProducts from '../../api/fetchProducts'
+// import ProductCard from '../ProductCard/ProductCard'
+// import Loading from '../Loading/Loading'
+// import AppContext from '../../context/AppContext'
+// import fetchProducts from '../../api/fetchProducts'
 
-import './Products.css'
+// import './Products.css'
 
-const Products = () => {
+// const Products = () => {
 
-  const [products, setProducts] = useContext(AppContext)
+//   const [products, setProducts] = useContext(AppContext)
 
-  const [loading, setLoading] = useState(true)
+//   const [loading, setLoading] = useState(true)
+
+//   useEffect(() => {
+//     fetchProducts('iphone').then((response) => {
+//       setProducts(response)
+//       setLoading(false)
+//     });
+//   }, []);
+
+//   return (
+//     <>
+//       {loading && <Loading /> || (
+
+//         <section className="products container">
+//           {
+//             products.map((product) => (
+//               <ProductCard
+//                 key={product.id}
+//                 data={product}
+//               />
+//             ))
+//           }
+//         </section>
+
+//       )}
+//     </>
+
+//   )
+// }
+
+// export default Products
+
+import { useEffect, useContext } from 'react'
+
+import './Products.css';
+import fetchProducts from '../../api/fetchProducts';
+import ProductCard from '../ProductCard/ProductCard';
+import Loading from '../Loading/Loading';
+import AppContext from '../../context/AppContext';
+
+function Products() {
+
+  const { products, setProducts, loading, setLoading } = useContext(AppContext);
+  
 
   useEffect(() => {
     fetchProducts('iphone').then((response) => {
-      setProducts(response)
-      setLoading(false)
+      setProducts(response);
+      setLoading(false);
     });
   }, []);
 
   return (
-    <>
-      {loading && <Loading /> || (
-
-        <section className="products container">
-          {
-            products.map((product) => (
-              <ProductCard
-                key={product.id}
-                data={product}
-              />
-            ))
-          }
-        </section>
-
-      )}
-    </>
-
-  )
+    (loading && <Loading /> ) || (
+      <section className="products container">
+        {products.map((product) => <ProductCard key={product.id} data={product} />)}
+      </section>
+    )
+    
+  );
 }
 
-export default Products
+export default Products;
