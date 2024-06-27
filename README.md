@@ -15,3 +15,18 @@ Este é um projeto de carrinho de compras desenvolvido com React JS. Ele permite
 - HTML5: linguagem de marcação para estruturar o conteúdo da aplicação.
 - CSS3: linguagem de estilo para estilizar a interface do usuário.
 - API do Mercado Livre: utilizada para obter dados de produtos.
+
+## Setup
+
+```bash
+git clone https://github.com/joaodev2005/shoppingcart.git
+```
+
+## Instrução de uso
+
+Como usar o projeto
+
+```bash
+cd project-name
+npm some-command-to-run
+```
