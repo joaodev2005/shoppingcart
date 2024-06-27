@@ -8,7 +8,7 @@ import './Cart.css'
 
 const Cart = () => {
 
-  const { cartItems } = useContext(AppContext)
+  const { cartItems, isCartVisable } = useContext(AppContext)
 
   const cartResume = cartItems.reduce((acumulator, item) => {
 
@@ -16,7 +16,7 @@ const Cart = () => {
   }, 0 )
 
   return (
-    <section className='cart cart_active'>
+    <section className={`cart ${isCartVisable ? 'cart_active' : ''}`}>
       <div className='cart-itens'>
 
         {cartItems.map(item => <CartItem key={item.id} data={item} />)}
